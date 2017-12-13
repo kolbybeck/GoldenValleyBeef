@@ -1,0 +1,52 @@
+﻿@model IEnumerable<GVB.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info btn-large" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Roles.RoleDescr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpFname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpLname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpPhone)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roles.RoleDescr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpFname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpLname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpPhone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }, new { @class = "btn btn-info btn-large" })
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }, new { @class = "btn btn-info btn-large" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID }, new { @class = "btn btn-info btn-large" })
+            </td>
+        </tr>
+    }
+
+</table>

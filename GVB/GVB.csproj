@@ -200,20 +200,39 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CattleController.cs" />
+    <Compile Include="Controllers\DairiesController.cs" />
+    <Compile Include="Controllers\DeceasedController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\FeedlotController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\StatesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\GVDBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Cattle.cs" />
+    <Compile Include="Models\Dairy.cs" />
+    <Compile Include="Models\Deceased.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Feedlot.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Roles.cs" />
+    <Compile Include="Models\State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\cow.jpg" />
+    <Content Include="Content\simplex.css" />
+    <Content Include="Content\StyleSheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -223,6 +242,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\simplex.min.css" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -268,6 +288,41 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Cattle\Create.cshtml" />
+    <Content Include="Views\Cattle\Delete.cshtml" />
+    <Content Include="Views\Cattle\Details.cshtml" />
+    <Content Include="Views\Cattle\Edit.cshtml" />
+    <Content Include="Views\Cattle\Index.cshtml" />
+    <Content Include="Views\Dairies\Create.cshtml" />
+    <Content Include="Views\Dairies\Delete.cshtml" />
+    <Content Include="Views\Dairies\Details.cshtml" />
+    <Content Include="Views\Dairies\Edit.cshtml" />
+    <Content Include="Views\Dairies\Index.cshtml" />
+    <Content Include="Views\Deceased\Create.cshtml" />
+    <Content Include="Views\Deceased\Delete.cshtml" />
+    <Content Include="Views\Deceased\Details.cshtml" />
+    <Content Include="Views\Deceased\Edit.cshtml" />
+    <Content Include="Views\Deceased\Index.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Feedlot\Create.cshtml" />
+    <Content Include="Views\Feedlot\Delete.cshtml" />
+    <Content Include="Views\Feedlot\Details.cshtml" />
+    <Content Include="Views\Feedlot\Edit.cshtml" />
+    <Content Include="Views\Feedlot\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\User\Admin.cshtml" />
+    <Content Include="Views\User\Advanced.cshtml" />
+    <Content Include="Views\User\ChooseFeedlot.cshtml" />
+    <Content Include="Views\User\Reports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

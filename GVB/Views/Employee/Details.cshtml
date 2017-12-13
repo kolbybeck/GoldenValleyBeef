@@ -1,0 +1,50 @@
+﻿@model GVB.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Roles.RoleDescr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roles.RoleDescr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpFname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpFname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpLname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpLname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpPhone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info btn-large" })
+</p>
+

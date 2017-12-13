@@ -1,0 +1,50 @@
+﻿@model GVB.Models.Cattle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cattle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CattleNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CattleNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dairy.dName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dairy.dName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feedlot.fName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feedlot.fName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRecieved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRecieved)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

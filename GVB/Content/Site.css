@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0;
     padding-bottom: 20px;
 }
 
@@ -21,4 +21,46 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navbar-title {
+    color: #888888;
+    font-size: 20px;
+}
+
+    .navbar-title:hover {
+        color: #444444;
+        text-decoration: none;
+    }
+
+.navbar-item {
+    color: #888888;
+    font-size: 14px;
+}
+
+    .navbar-item:hover {
+        color: #444444;
+        text-decoration: none;
+    }
+
+.login-text {
+    color: #555555;
+    padding-top: 20px;
+}
+
+.btn-login {
+    width: 150px;
+    left: 50%;
+}
+
+.login-credentials {
+    text-align: center;
+}
+
+.login-center {
+    margin: auto;
+}
+
+.navbar {
+    background-color: #efefef;
 }

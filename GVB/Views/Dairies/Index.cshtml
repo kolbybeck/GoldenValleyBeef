@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GVB.Models.Dairy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info btn-large" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.State.StateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dZip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dPhone)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.State.StateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dZip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dPhone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.dairyID }, new { @class = "btn btn-info btn-large" })
+                @Html.ActionLink("Details", "Details", new { id = item.dairyID }, new { @class = "btn btn-info btn-large" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.dairyID }, new { @class = "btn btn-info btn-large" })
+            </td>
+        </tr>
+    }
+
+</table>
+

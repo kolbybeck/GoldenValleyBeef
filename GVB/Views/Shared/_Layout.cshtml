@@ -1,42 +1,38 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <link rel="StyleSheet" href="~/Content/StyleSheet.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Golden Valley Beef</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Golden Valley Beef", "ChooseFeedlot", "User", new { area = "" }, new { @class = "navbar-title" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+            @Html.ActionLink("Admin", "Admin", "User", new { area = "" }, new { @class = "navbar-item" })
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <center>
+                <div class="imgcontainer">
+                    <img alighn="center" width="150" height="90" src="~/Content/Images/cow.jpg" alt="Cow Image">
+                </div>
+            </center>
+            <br />
+            <br />
+            <div>
+                <p>&copy; @DateTime.Now.Year - Golden Valley Beef</p>
+            </div>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
