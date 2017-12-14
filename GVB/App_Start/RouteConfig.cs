@@ -16,7 +16,7 @@ namespace GVB
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "ChooseFeedlot", id = UrlParameter.Optional }
+                defaults: new { controller = "User", action = "ChooseFeedlot", id = UrlParameter.Optional }
             );
         }
     }

@@ -1,8 +1,7 @@
-﻿@model Dictionary<int, string>
+﻿@model IEnumerable<GVB.Models.Feedlot>
 
 @{
     ViewBag.Title = "ChooseFeedlot";
-    int iCount = 1;
 }
 
 <h1>Choose Feedlot</h1>
@@ -10,11 +9,11 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     @foreach (var item in Model)
     {
-
         <div class="row">
-            <h3>@Html.ActionLink(">>", "Create", "Deceased", new { feedlotID = iCount, feedlotName = item.Value }, new { @class = "btn btn-info btn-large" }) @item.Value</h3>
+            <br />
+                @Html.ActionLink(">>","Create", "Deceased", new { feedlotID = item.feedlotID, feedlotName = item.fName }, new { @class = "btn btn-info btn-large" }) 
+                @Html.DisplayFor(modelItem => item.fName)
+            <br />
         </div>
-        <br />
-        iCount++;
     }
 </div>

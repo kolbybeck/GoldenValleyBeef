@@ -208,7 +208,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\GVDBContext.cs" />
     <Compile Include="Global.asax.cs">
