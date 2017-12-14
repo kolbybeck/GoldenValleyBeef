@@ -21,7 +21,7 @@ namespace GVB.Controllers
             {
                 string myEmail = User.Identity.Name;
                 myEmployee = db.Employee.SqlQuery(
-                            "SELECT RoleID " +
+                            "SELECT * " +
                             "From Employee " +
                             "where Employee.EmpEmail = '" + myEmail + "'"
                             ).FirstOrDefault();
