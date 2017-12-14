@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 0;
+    padding-top: 35px;
     padding-bottom: 20px;
 }
 
@@ -23,6 +23,11 @@ textarea {
     max-width: 280px;
 }
 
+.login-title {
+    color: #888888;
+    font-size: 20px;
+}
+
 .navbar-title {
     color: #888888;
     font-size: 20px;
@@ -34,8 +39,9 @@ textarea {
     }
 
 .navbar-item {
-    color: #888888;
+    color: #777777;
     font-size: 14px;
+    padding-left: 25px;
 }
 
     .navbar-item:hover {
