@@ -478,7 +478,7 @@ namespace GVB.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ChooseFeedlot", "User");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
