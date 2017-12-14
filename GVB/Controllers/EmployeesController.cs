@@ -7,20 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GVB.DAL;
-using GVB.Models;
 
-namespace GVB.Controllers
+namespace GVB.Models
 {
-    [Authorize]
-    public class EmployeeController : Controller
+    public class EmployeesController : Controller
     {
         private GVBDBContext db = new GVBDBContext();
 
         // GET: Employees
         public ActionResult Index()
         {
-            var employees = db.Employee.Include(e => e.Roles);
-            return View(employees.ToList());
+            var employee = db.Employee.Include(e => e.Roles);
+            return View(employee.ToList());
         }
 
         // GET: Employees/Details/5
@@ -50,7 +48,7 @@ namespace GVB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,EmpFname,EmpLname,EmpPhone,RoleID")] Employee employee)
+        public ActionResult Create([Bind(Include = "EmployeeID,EmpFname,EmpLname,EmpEmail,EmpPhone,RoleID")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +82,7 @@ namespace GVB.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,EmpFname,EmpLname,EmpPhone,RoleID")] Employee employee)
+        public ActionResult Edit([Bind(Include = "EmployeeID,EmpFname,EmpLname,EmpEmail,EmpPhone,RoleID")] Employee employee)
         {
             if (ModelState.IsValid)
             {

@@ -25,6 +25,11 @@ namespace GVB.Models
         [DisplayName("Employee Last Name")]
         public String EmpLname { get; set; }
 
+
+        [DisplayName("Email")]
+        [DataType(DataType.EmailAddress)]
+        public String EmpEmail { get; set; }
+
         [Required(ErrorMessage = "Phone number required")]
         [DisplayName("Phone")]
         [DataType(DataType.PhoneNumber)]

@@ -35,6 +35,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.EmpEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpEmail)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.EmpPhone)
         </dt>
 
@@ -45,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info btn-large" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>
-

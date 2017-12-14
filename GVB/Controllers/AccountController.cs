@@ -9,12 +9,16 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GVB.Models;
+using GVB.DAL;
 
 namespace GVB.Controllers
 {
+
     [Authorize]
     public class AccountController : Controller
     {
+        private GVBDBContext db = new GVBDBContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -350,6 +354,13 @@ namespace GVB.Controllers
                         var lastname = lastNameClaim.Value;
                         ViewBag.fname = firstName;
                         ViewBag.lname = lastname;
+
+                        Employee employee = db.Employee.SqlQuery(
+                            "SELECT * " +
+                            "From Employee " +
+                            "where Employee.EmpEmail = '" + email + "'"
+                            ).FirstOrDefault();
+
                     }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:

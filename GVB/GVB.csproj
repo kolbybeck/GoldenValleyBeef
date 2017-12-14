@@ -203,7 +203,6 @@
     <Compile Include="Controllers\CattleController.cs" />
     <Compile Include="Controllers\DairiesController.cs" />
     <Compile Include="Controllers\DeceasedController.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FeedlotController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -218,6 +217,7 @@
     <Compile Include="Models\Dairy.cs" />
     <Compile Include="Models\Deceased.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Models\Feedlot.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -302,11 +302,6 @@
     <Content Include="Views\Deceased\Details.cshtml" />
     <Content Include="Views\Deceased\Edit.cshtml" />
     <Content Include="Views\Deceased\Index.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Employee\Details.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Feedlot\Create.cshtml" />
     <Content Include="Views\Feedlot\Delete.cshtml" />
     <Content Include="Views\Feedlot\Details.cshtml" />
@@ -322,6 +317,11 @@
     <Content Include="Views\User\Advanced.cshtml" />
     <Content Include="Views\User\ChooseFeedlot.cshtml" />
     <Content Include="Views\User\Reports.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

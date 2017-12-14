@@ -36,6 +36,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.EmpEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpEmail)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.EmpPhone)
         </dt>
 
@@ -45,14 +53,12 @@
 
     </dl>
 
-    @using (Html.BeginForm())
-    {
+    @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info btn-large" })
-            <input type="submit" value="Delete" class="btn btn-default" />
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>
-
