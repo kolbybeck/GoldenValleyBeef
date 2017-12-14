@@ -167,7 +167,7 @@ namespace GVB.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("ChooseFeedlot", "User");
                 }
                 AddErrors(result);
             }
@@ -352,8 +352,6 @@ namespace GVB.Controllers
                         var email = emailClaim.Value;
                         var firstName = givenNameClaim.Value;
                         var lastname = lastNameClaim.Value;
-                        ViewBag.fname = firstName;
-                        ViewBag.lname = lastname;
 
                         Employee employee = db.Employee.SqlQuery(
                             "SELECT * " +
@@ -361,6 +359,13 @@ namespace GVB.Controllers
                             "where Employee.EmpEmail = '" + email + "'"
                             ).FirstOrDefault();
 
+                        if (employee == null)
+                        {
+                            employee = new Employee();
+                            employee.EmpEmail = email;
+                        }
+
+                        GVB.Controllers.HelperController.SetEmployeeAuthID(employee);
                     }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
@@ -421,7 +426,7 @@ namespace GVB.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
