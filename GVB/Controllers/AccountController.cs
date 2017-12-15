@@ -366,6 +366,16 @@ namespace GVB.Controllers
                         }
 
                         GVB.Controllers.HelperController.SetEmployeeAuthID(employee);
+
+                        //Employee empName = db.Employee.SqlQuery(
+                        //    "SELECT * " +
+                        //    "From Employee " +
+                        //    "where Employee.Empfname = '" + firstName + "'" + 
+                        //    " AND Employee..Emplname = '" + lastname + "'"
+                        //    ).FirstOrDefault();
+
+                        //GVB.Controllers.HelperController.setEmployeeName(empName);
+
                     }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:

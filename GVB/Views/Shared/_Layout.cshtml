@@ -19,8 +19,9 @@
                     {
                         @Html.ActionLink("Admin", "Admin", "User", new { area = "" }, new { @class = "navbar-item" })
                     }
-                }
-
+                    @Html.ActionLink("Hello " + GVB.Controllers.HelperController.GetEmployeeName(), "ChooseFeedlot", "User", new { area = "" }, new { @class = "navbar-item" })
+                    @Html.Partial("_LoginPartial")
+                }   
             </div>
         </div>
     </div>
@@ -36,7 +37,6 @@
             <br />
             <br />
             <div>
-                @*<p>&copy; @DateTime.Now.Year - Golden Valley Beef</p>*@
             </div>
         </footer>
     </div>

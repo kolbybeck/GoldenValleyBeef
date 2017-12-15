@@ -13,6 +13,20 @@ namespace GVB.Controllers
         private GVBDBContext db = new GVBDBContext();
 
         public static int employeeAuthID;
+        public static string employeeName;
+
+
+        public static string setEmployeeName(Employee empName)
+        {
+            employeeName = empName.EmpFname + " " + empName.EmpLname;
+            return employeeName;
+        }
+
+        public static string GetEmployeeName()
+        {
+            return employeeName;
+        }
+
 
         public static int SetEmployeeAuthID(Employee employee)
         {
