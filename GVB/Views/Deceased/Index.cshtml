@@ -9,47 +9,67 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Dairy.dName)
+            @Html.ActionLink("Dairy", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Employee.EmpFname)
+            @Html.ActionLink("Employee", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Feedlot.fName)
+            @Html.ActionLink("Feedlot", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CattleNumber)
+            @Html.ActionLink("Cattle Number", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeceasedDate)
+            @Html.ActionLink("Deceased Date", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dairy.dName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.EmpFname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Feedlot.fName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CattleNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeceasedDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CattleID }, new { @class = "btn btn-info btn-large" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.CattleID }, new { @class = "btn btn-info btn-large" })
-            </td>
-        </tr>
-    }
 
-</table>
+        @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dairy.dName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee.EmpFname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedlot.fName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CattleNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeceasedDate)
+            </th>
+            <th></th>
+        </tr>*@
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dairy.dName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.EmpFname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Feedlot.fName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CattleNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeceasedDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CattleID }, new { @class = "btn btn-info btn-large" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CattleID }, new { @class = "btn btn-info btn-large" })
+                </td>
+            </tr>
+        }
+
+    </table>
 

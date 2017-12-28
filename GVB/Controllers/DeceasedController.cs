@@ -16,11 +16,55 @@ namespace GVB.Controllers
         private GVBDBContext db = new GVBDBContext();
 
         // GET: Deceaseds
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var deceased = db.Deceased.Include(d => d.Dairy).Include(d => d.Employee).Include(d => d.Feedlot);
+        //    return View(deceased.ToList());
+        //}
+
+        public ActionResult Index(string sortOrder)
         {
             var deceased = db.Deceased.Include(d => d.Dairy).Include(d => d.Employee).Include(d => d.Feedlot);
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Dairy_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "default" : "Date";
+            var dead = from d in db.Deceased
+                           select d;
+            switch (sortOrder)
+            {
+                case "Dairy_desc":
+                    dead = dead.OrderByDescending(d => d.Dairy.dName);
+                    break;
+                case "Feedlot_desc":
+                    dead = dead.OrderByDescending(d => d.Feedlot.fName);
+                    break;
+                case "Employee_desc":
+                    dead = dead.OrderByDescending(d => d.Employee.EmpFname);
+                    break;
+                case "Cattlenumber_desc":
+                    dead = dead.OrderBy(d => d.CattleNumber);
+                    break;
+                default:
+                    dead = dead.OrderBy(d => d.DeceasedDate);
+                    break;
+            }
             return View(deceased.ToList());
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // GET: Deceaseds/Details/5
         public ActionResult Details(int? id)
@@ -47,25 +91,7 @@ namespace GVB.Controllers
             return View();
         }
 
-        //public ActionResult ConfirmCow(int? feedlotNum, string dName, string CattleNumber)
-        //{
-        //    if( feedlotNum != null)
-        //    {
-        //        IEnumerable<Cattle> cattle =
-        //        db.Database.SqlQuery<Cattle>("SELECT Cattle.CattleID, Cattle.CattleNumber, Cattle.DairyID, Cattle.FeedlotID, " +
-        //        "Cattle.CattleTypeID " +
-        //        "FROM Cattle INNER JOIN Dairy ON Cattle.DairyID = Dairy.DairyID " +
-        //        "WHERE Cattle.FeedlotID = " + feedlotNum + " AND Dairy.dName = " + dName +
-        //        " AND Cattle.CattleNumber = " + CattleNumber);
-
-        //        return View(Cattle.FirstOrDefault());
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("ChooseFeedlot", "User");
-        //    }
-
-        //}
+     
 
         // POST: Deceaseds/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
