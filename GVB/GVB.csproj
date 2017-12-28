@@ -312,7 +312,6 @@
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\User\Admin.cshtml" />
     <Content Include="Views\User\Advanced.cshtml" />
     <Content Include="Views\User\ChooseFeedlot.cshtml" />

@@ -19,8 +19,6 @@
                     {
                         @Html.ActionLink("Admin", "Admin", "User", new { area = "" }, new { @class = "navbar-item" })
                     }
-                    @Html.ActionLink("Hello " + GVB.Controllers.HelperController.GetEmployeeName(), "ChooseFeedlot", "User", new { area = "" }, new { @class = "navbar-item" })
-                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-item" }))
                     {
                         @Html.AntiForgeryToken()
                     }

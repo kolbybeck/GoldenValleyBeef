@@ -6,45 +6,34 @@
 
 <h2>Deceased Cattle</h2>
 
+@using (Html.BeginForm())
+{
+    
+        <h4><input type="submit" value="Search By Cattle Number" class="btn btn-info btn-large" /> @Html.TextBox("SearchString")</h4>
+        
+    
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Dairy", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Dairy", "Index", new { sortOrder = "Dairy_desc" })
         </th>
         <th>
-            @Html.ActionLink("Employee", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Employee", "Index", new { sortOrder = "Employee_desc" })
         </th>
         <th>
-            @Html.ActionLink("Feedlot", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Feedlot", "Index", new { sortOrder = "Feedlot_desc" })
         </th>
         <th>
-            @Html.ActionLink("Cattle Number", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Cattle Number", "Index", new { sortOrder = "Cattlenumber_desc" })
         </th>
         <th>
-            @Html.ActionLink("Deceased Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+            @Html.ActionLink("Deceased Date", "Index", new { sortOrder = "Deceaseddate_desc" })
         </th>
         <th></th>
     </tr>
 
-
-        @*<tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Dairy.dName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Employee.EmpFname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Feedlot.fName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CattleNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeceasedDate)
-            </th>
-            <th></th>
-        </tr>*@
 
         @foreach (var item in Model)
         {

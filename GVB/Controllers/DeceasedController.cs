@@ -16,19 +16,17 @@ namespace GVB.Controllers
         private GVBDBContext db = new GVBDBContext();
 
         // GET: Deceaseds
-        //public ActionResult Index()
-        //{
-        //    var deceased = db.Deceased.Include(d => d.Dairy).Include(d => d.Employee).Include(d => d.Feedlot);
-        //    return View(deceased.ToList());
-        //}
-
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             var deceased = db.Deceased.Include(d => d.Dairy).Include(d => d.Employee).Include(d => d.Feedlot);
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Dairy_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "default" : "Date";
             var dead = from d in db.Deceased
                            select d;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                dead = dead.Where(d => d.CattleNumber.Contains(searchString));
+            }
+
             switch (sortOrder)
             {
                 case "Dairy_desc":
@@ -41,29 +39,17 @@ namespace GVB.Controllers
                     dead = dead.OrderByDescending(d => d.Employee.EmpFname);
                     break;
                 case "Cattlenumber_desc":
-                    dead = dead.OrderBy(d => d.CattleNumber);
+                    dead = dead.OrderByDescending(d => d.CattleNumber);
+                    break;
+                case "Deceaseddate_desc":
+                    dead = dead.OrderByDescending(d => d.DeceasedDate);
                     break;
                 default:
-                    dead = dead.OrderBy(d => d.DeceasedDate);
+                    dead = dead.OrderByDescending(d => d.DeceasedDate);
                     break;
             }
-            return View(deceased.ToList());
+            return View(dead.ToList());
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         // GET: Deceaseds/Details/5

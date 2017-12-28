@@ -43,26 +43,27 @@ namespace GVB.Controllers
         }
 
 
-        //[Authorize(Roles = "User,Administrator")]
+        [Authorize(Roles = "2, 1")]
         public ActionResult ChooseFeedlot()
         {
             var feedlot = db.Feedlot;
+           
             return View(feedlot.ToList());
         }
 
-        //[Authorize(Roles ="Administrator")]
+        [Authorize(Roles ="1")]
         public ActionResult Admin()
         {
             return View();
         }
 
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "1")]
         public ActionResult Advanced()
         {
             return View();
         }
 
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "1")]
         public ActionResult Reports()
         {
             return View();
