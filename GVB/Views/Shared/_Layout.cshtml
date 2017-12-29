@@ -15,10 +15,15 @@
                 @Html.ActionLink("Golden Valley Beef", "ChooseFeedlot", "User", new { area = "" }, new { @class = "navbar-title" })
                 @if (User.Identity.IsAuthenticated == true)
                 {
-                    if (GVB.Controllers.HelperController.GetEmployeeAuthID() == 1)
+                    if (GVB.Controllers.HelperController.GetEmployeeAuthID() <= 2)
                     {
                         @Html.ActionLink("Admin", "Admin", "User", new { area = "" }, new { @class = "navbar-item" })
                     }
+                    if (GVB.Controllers.HelperController.GetEmployeeAuthID() == 1)
+                    {
+                        @Html.ActionLink("Clear Data", "ClearData", "User", new { area = "" }, new { @class = "navbar-item" })
+                    }
+
                     {
                         @Html.AntiForgeryToken()
                     }

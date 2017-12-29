@@ -43,7 +43,7 @@ namespace GVB.Controllers
         }
 
 
-        [Authorize(Roles = "2, 1")]
+        //[Authorize(Roles = "2, 1")]
         public ActionResult ChooseFeedlot()
         {
             var feedlot = db.Feedlot;
@@ -51,22 +51,47 @@ namespace GVB.Controllers
             return View(feedlot.ToList());
         }
 
-        [Authorize(Roles ="1")]
+        //[Authorize(Roles ="1")]
         public ActionResult Admin()
         {
             return View();
         }
 
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         public ActionResult Advanced()
         {
             return View();
         }
 
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         public ActionResult Reports()
         {
             return View();
         }
+
+        public ActionResult ClearData()
+        {
+            return View();
+        }
+
+
+        //FIX THIS
+        // POST: Deceaseds/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteAll(int id)
+        //{
+        //    IEnumerable<GVB.Models.Deceased>
+
+        //    var ClearData = db.Deceased.Where(a => a.CattleID == id).ToList();
+        //    foreach (var Cow in ClearData)
+        //        db.ClearData.Remove(Cow);
+        //    db.SaveChanges();
+
+        //    db.Deceased.Remove();
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
     }
 }
