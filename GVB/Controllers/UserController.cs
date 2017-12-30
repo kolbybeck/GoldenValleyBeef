@@ -5,6 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+using System.IO;
+using OfficeOpenXml.Core.ExcelPackage;
 
 namespace GVB.Controllers
 {
@@ -42,8 +47,6 @@ namespace GVB.Controllers
             }
         }
 
-
-        //[Authorize(Roles = "2, 1")]
         public ActionResult ChooseFeedlot()
         {
             var feedlot = db.Feedlot;
@@ -51,19 +54,19 @@ namespace GVB.Controllers
             return View(feedlot.ToList());
         }
 
-        //[Authorize(Roles ="1")]
+
         public ActionResult Admin()
         {
             return View();
         }
 
-        //[Authorize(Roles = "1")]
+
         public ActionResult Advanced()
         {
             return View();
         }
 
-        //[Authorize(Roles = "1")]
+
         public ActionResult Reports()
         {
             return View();
@@ -73,25 +76,37 @@ namespace GVB.Controllers
         {
             return View();
         }
+    
+        public ActionResult ExportData()
+        {
+            SqlConnection Con = new SqlConnection();
+            string Path = ConfigurationManager.ConnectionStrings["GVBDBContext"].ConnectionString;
+            Con.ConnectionString = Path;
+            DataTable DtNew = new DataTable();
+            SqlDataAdapter Adp = new SqlDataAdapter("Select * From Deceased", Con);
+            Adp.Fill(DtNew);
 
+            if (DtNew.Rows.Count > 0)
+            {
+                string FilePath = Server.MapPath("~/Content/ExcelExportfile.xlsx");
+                FileInfo Files = new FileInfo(FilePath);
+                ExcelPackage excel = new ExcelPackage(Files);
+                var sheetcreate =  excel.Workbook.Worksheets.Add("DeceasedData");
+                for (int i = 0; i < DtNew.Columns.Count; i++)
+                {
+                    sheetcreate.Cell(1, i + 1).Value = DtNew.Columns[i].ColumnName.ToString();
+                }
+                for (int i = 0; i < DtNew.Rows.Count; i++)
+                {
+                    for (int j = 0; j < DtNew.Columns.Count; j++)
+                    {
+                        sheetcreate.Cell(i + 2, j + 1).Value = DtNew.Rows[i][j].ToString();
+                    }
+                }
+                excel.Save();
+            }
 
-        //FIX THIS
-        // POST: Deceaseds/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteAll(int id)
-        //{
-        //    IEnumerable<GVB.Models.Deceased>
-
-        //    var ClearData = db.Deceased.Where(a => a.CattleID == id).ToList();
-        //    foreach (var Cow in ClearData)
-        //        db.ClearData.Remove(Cow);
-        //    db.SaveChanges();
-
-        //    db.Deceased.Remove();
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
+            return View();
+        }
     }
 }
