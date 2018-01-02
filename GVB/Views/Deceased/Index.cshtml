@@ -1,18 +1,7 @@
 ﻿@model IEnumerable<GVB.Models.Deceased>
 
-@{
-    ViewBag.Title = "Index";
-}
 
 <h2>Deceased Cattle</h2>
-
-@using (Html.BeginForm())
-{
-    
-        <h4><input type="submit" value="Search By Cattle Number" class="btn btn-info btn-large" /> @Html.TextBox("SearchString")</h4>
-        
-    
-}
 
 <table class="table">
     <tr>

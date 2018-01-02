@@ -21,6 +21,7 @@ namespace GVB.Models
         public String CattleNumber { get; set; }
 
         private DateTime _createdOn = DateTime.Now;
+
         [Display(Name = "Deceased Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
@@ -33,19 +34,19 @@ namespace GVB.Models
             set { _createdOn = value; }
         }
 
-        [Required(ErrorMessage = "Please select a dairy")]
+
         [ForeignKey("Dairy")]
-        public virtual int DairyID { get; set; }
+        public virtual int ? DairyID { get; set; }
         public virtual Dairy Dairy { get; set; }
 
-        [Required]
+
         [ForeignKey("Feedlot")]
-        public virtual int FeedlotID { get; set; }
+        public virtual int ? FeedlotID { get; set; }
         public virtual Feedlot Feedlot { get; set; }
 
-        [Required(ErrorMessage = "Please select an employee")]
+
         [ForeignKey("Employee")]
-        public virtual int EmployeeID { get; set; }
+        public virtual int ? EmployeeID { get; set; }
         public virtual Employee Employee { get; set; }
 
 

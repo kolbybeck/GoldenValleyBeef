@@ -21,12 +21,12 @@
                     }
                     if (GVB.Controllers.HelperController.GetEmployeeAuthID() == 1)
                     {
-                        @Html.ActionLink("Reports", "Reports", "User", new { area = "" }, new { @class = "navbar-item" })
+                        @Html.ActionLink("Reports", "Create", "ExportDateRanges", new { area = "" }, new { @class = "navbar-item" })
                     }
 
-                    {
+                    @*{
                         @Html.AntiForgeryToken()
-                    }
+                    }*@
                 }
             </div>
         </div>

@@ -22,11 +22,6 @@ namespace GVB.Controllers
             var dead = from d in db.Deceased
                            select d;
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                dead = dead.Where(d => d.CattleNumber.Contains(searchString));
-            }
-
             switch (sortOrder)
             {
                 case "Dairy_desc":

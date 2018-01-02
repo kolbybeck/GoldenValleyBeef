@@ -11,117 +11,107 @@ using GVB.Models;
 
 namespace GVB.Controllers
 {
-    [Authorize]
-    public class CattleController : Controller
+    public class ExportDateRangesController : Controller
     {
         private GVBDBContext db = new GVBDBContext();
 
-        // GET: Cattle
+        // GET: ExportDateRanges
         public ActionResult Index()
         {
-            var cattle = db.Cattle.Include(c => c.Dairy).Include(c => c.Feedlot);
-            return View(cattle.ToList());
+            return View(db.ExportDateRange.ToList());
         }
 
-        // GET: Cattle/Details/5
+        // GET: ExportDateRanges/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cattle cattle = db.Cattle.Find(id);
-            if (cattle == null)
+            ExportDateRange exportDateRange = db.ExportDateRange.Find(id);
+            if (exportDateRange == null)
             {
                 return HttpNotFound();
             }
-            return View(cattle);
+            return View(exportDateRange);
         }
 
-        // GET: Cattle/Create
+        // GET: ExportDateRanges/Create
         public ActionResult Create()
         {
-            ViewBag.DairyID = new SelectList(db.Dairy, "DairyID", "dName");
-            ViewBag.feedlotID = new SelectList(db.Feedlot, "FeedlotID", "fName");
             return View();
         }
 
-        // POST: Cattle/Create
+        // POST: ExportDateRanges/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "cattleID,cattleNumber,DairyID,feedlotID,DateRecieved,ShippedDate")] Cattle cattle)
+        public ActionResult Create([Bind(Include = "ExportDateRangeID,StartDate,EndDate")] ExportDateRange exportDateRange)
         {
             if (ModelState.IsValid)
             {
-                db.Cattle.Add(cattle);
+                db.ExportDateRange.Add(exportDateRange);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Reports", "User");
             }
 
-            ViewBag.DairyID = new SelectList(db.Dairy, "dairyID", "dName", cattle.DairyID);
-            ViewBag.feedlotID = new SelectList(db.Feedlot, "feedlotID", "fName", cattle.FeedlotID);
-            return View(cattle);
+            return View("Reports", "User");
         }
 
-        // GET: Cattle/Edit/5
+        // GET: ExportDateRanges/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cattle cattle = db.Cattle.Find(id);
-            if (cattle == null)
+            ExportDateRange exportDateRange = db.ExportDateRange.Find(id);
+            if (exportDateRange == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.DairyID = new SelectList(db.Dairy, "dairyID", "dName", cattle.DairyID);
-            ViewBag.feedlotID = new SelectList(db.Feedlot, "feedlotID", "fName", cattle.FeedlotID);
-            return View(cattle);
+            return View(exportDateRange);
         }
 
-        // POST: Cattle/Edit/5
+        // POST: ExportDateRanges/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "cattleID,cattleNumber,DairyID,feedlotID,DateRecieved,ShippedDate")] Cattle cattle)
+        public ActionResult Edit([Bind(Include = "ExportDateRangeID,StartDate,EndDate")] ExportDateRange exportDateRange)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cattle).State = EntityState.Modified;
+                db.Entry(exportDateRange).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DairyID = new SelectList(db.Dairy, "DairyID", "dName", cattle.DairyID);
-            ViewBag.feedlotID = new SelectList(db.Feedlot, "feedlotID", "fName", cattle.FeedlotID);
-            return View(cattle);
+            return View(exportDateRange);
         }
 
-        // GET: Cattle/Delete/5
+        // GET: ExportDateRanges/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cattle cattle = db.Cattle.Find(id);
-            if (cattle == null)
+            ExportDateRange exportDateRange = db.ExportDateRange.Find(id);
+            if (exportDateRange == null)
             {
                 return HttpNotFound();
             }
-            return View(cattle);
+            return View(exportDateRange);
         }
 
-        // POST: Cattle/Delete/5
+        // POST: ExportDateRanges/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cattle cattle = db.Cattle.Find(id);
-            db.Cattle.Remove(cattle);
+            ExportDateRange exportDateRange = db.ExportDateRange.Find(id);
+            db.ExportDateRange.Remove(exportDateRange);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
