@@ -79,7 +79,6 @@ namespace GVB.Controllers
                                                                                             "FROM ExportDateRange)" 
                                                 ).FirstOrDefault();
             
-            DateTime dt = DateTime.Now;
             SqlConnection Con = new SqlConnection();
             string Path = ConfigurationManager.ConnectionStrings["GVBDBContext"].ConnectionString;
             Con.ConnectionString = Path;
@@ -90,10 +89,11 @@ namespace GVB.Controllers
                                                     "Deceased.DeceasedDate " +
                                                     "FROM Deceased INNER JOIN " +
                                                     "Dairy ON Deceased.DairyID = Dairy.DairyID INNER JOIN " +
-                                                    "Feedlot ON Deceased.FeedlotID = Feedlot.FeedlotID INNER JOIN " +
+                                                    "Feedlot ON Deceased.FeedlotID = Feedlot.FeedlotID FULL JOIN " +
                                                     "Employee ON Deceased.EmployeeID = Employee.EmployeeID " +
                                                     "WHERE Deceased.DeceasedDate BETWEEN '" + Date.StartDate + "' AND '" + Date.EndDate +
-                                                    "' ORDER BY Deceased.DeceasedDate DESC", Con);
+                                                    "' AND Deceased.CattleNumber IS NOT NULL " +
+                                                    "ORDER BY Deceased.DeceasedDate DESC", Con);
             Adp.Fill(DtNew);
 
             if (DtNew.Rows.Count > 0)
@@ -101,7 +101,7 @@ namespace GVB.Controllers
                 string FilePath = Server.MapPath("~/DeceasedCattle.xlsx");
                 FileInfo Files = new FileInfo(FilePath);
                 ExcelPackage excel = new ExcelPackage(Files);
-                ExcelWorksheet ws =  excel.Workbook.Worksheets.Add("Deceased Cattle" + dt);
+                ExcelWorksheet ws =  excel.Workbook.Worksheets.Add("Deceased Cattle");
                 for (int i = 0; i < DtNew.Columns.Count; i++)
                 {
                     ws.Cells[1, i + 1].Value = DtNew.Columns[i].ColumnName.ToString();

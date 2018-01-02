@@ -361,7 +361,6 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\User\Admin.cshtml" />
-    <Content Include="Views\User\Advanced.cshtml" />
     <Content Include="Views\User\ChooseFeedlot.cshtml" />
     <Content Include="Views\User\Reports.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
@@ -369,7 +368,6 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\User\ExportData.cshtml" />
     <Content Include="Views\ExportDateRanges\Create.cshtml" />
     <Content Include="Views\ExportDateRanges\Delete.cshtml" />
     <Content Include="Views\ExportDateRanges\Details.cshtml" />
