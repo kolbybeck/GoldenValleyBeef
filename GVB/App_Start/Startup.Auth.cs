@@ -62,7 +62,7 @@ namespace GVB
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                 ClientId = "129702992117-tmo5vpsoftu432aodrrqvfdvvs2pihmm.apps.googleusercontent.com",
-                ClientSecret = "poo_Q8_PXbjOGkY8FQbt0e61"
+                ClientSecret = "Clb-n5Q2ncaYH8vV93xuAk32"
             });
         }
     }
