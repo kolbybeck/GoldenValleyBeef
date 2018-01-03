@@ -39,7 +39,7 @@ namespace GVB.Models
         [Required(ErrorMessage = "Zip required")]
         [DisplayName("Zip")]
         [DataType(DataType.PostalCode)]
-        public int dZip { get; set; }
+        public string dZip { get; set; }
 
         [Required(ErrorMessage = "Phone number required")]
         [DisplayName("Phone")]

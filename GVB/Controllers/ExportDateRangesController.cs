@@ -56,7 +56,7 @@ namespace GVB.Controllers
                 return RedirectToAction("Reports", "User");
             }
 
-            return View("Reports", "User");
+            return View("Create");
         }
 
         // GET: ExportDateRanges/Edit/5
